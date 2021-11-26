@@ -4,9 +4,9 @@
 
 declare(strict_types=1);
 
-require '../src/Transaction.php';
+require '../src/PaymentGateway/Paypal/Transaction.php';
 
-$transaction1 = new Transaction(100, 'Transaction 1');
+$transaction1 = new \PaymentGateway\Paypal\Transaction(100, 'Transaction 1');
 $transaction1->addTax(8)
                 ->applyDiscount(10)
                 ->getAmount();
