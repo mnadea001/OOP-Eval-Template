@@ -7,7 +7,7 @@ Instanciez cette classe
 
 ### Exercice 2
 
-Ajoutez de propriétés à cette classe Maison dont une sera le type pour le reste vous pourrez utiliser superficie ou autres, libre à vous de choisir.
+Ajoutez des propriétés à cette classe Maison dont une sera le type pour le reste vous pourrez utiliser superficie ou autres, libre à vous de choisir.
 Instanciez un second objet de cette classe.
 Sans utiliser de constructeurs ni de getters/setters, modifiez les propriétés de ces deux objets afin qu'ils soient différents.
 
