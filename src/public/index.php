@@ -2,8 +2,10 @@
 
 declare(strict_types=1);
 
-    require '../Router.php';
-    require '../PaymentGateway/Paypal/Transaction.php';
+require '../vendor/autoload.php';
+
+    // require '../Router.php';
+    // require '../PaymentGateway/Paypal/Transaction.php';
 
 use App\PaymentGateway\Paypal\Transaction;
 use App\Router;
@@ -13,7 +15,11 @@ use App\Router;
 // echo '</pre>';
 
 spl_autoload_register(function ($class) {
-    var_dump($class);
+    $class = '..'.substr(str_replace('\\', '/', $class), 3).'.php';
+
+    if (!file_exists($class)) {
+        require $class;
+    }
 });
 
 $router = new Router();
