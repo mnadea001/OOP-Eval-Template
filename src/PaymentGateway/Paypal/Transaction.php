@@ -2,7 +2,7 @@
 
     declare(strict_types=1);
 
-namespace PaymentGateway\Paypal;
+namespace App\PaymentGateway\Paypal;
 
     //? A partir d'ici on utilisera un typage strict afin de s'assurer de la validité de nos valeurs.
     //* Il faudra typer les attributs/propriétés dans les classes (private float $amount)
