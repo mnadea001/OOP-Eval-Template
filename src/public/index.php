@@ -1,12 +1,12 @@
 <?php
 
-    require '../src/Router.php';
-    require '../src/PaymentGateway/Paypal/Transaction.php';
+declare(strict_types=1);
+
+    require '../Router.php';
+    require '../PaymentGateway/Paypal/Transaction.php';
 
 use App\PaymentGateway\Paypal\Transaction;
 use App\Router;
-
-    declare(strict_types=1);
 
 // echo '<pre>';
 // print_r($_SERVER);
