@@ -14,6 +14,7 @@ $router->register('/', [App\Classes\Home::class, 'index']);
 $router->register('/alt', [App\Classes\Home::class, 'alt']);
 $router->register('/hw', function () { require 'hello.php'; });
 $router->register('/transactions', function () { echo 'Transactions'; });
+$router->register('/transactions/create', [App\Classes\Transactions::class, 'create']);
 
 echo $router->resolve($_SERVER['REQUEST_URI']);
 // var_dump($router);
