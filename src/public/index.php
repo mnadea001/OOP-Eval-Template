@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 require __DIR__.'/../../vendor/autoload.php';
 
+session_start();
 // echo '<pre>';
 // print_r($_SERVER);
 // echo '</pre>';
@@ -18,4 +19,5 @@ $router->get('/transactions/create', [App\Classes\Transactions::class, 'create']
 $router->post('/transactions/create', [App\Classes\Transactions::class, 'store']);
 
 echo $router->resolve($_SERVER['REQUEST_URI'], strtolower($_SERVER['REQUEST_METHOD']));
+
 // var_dump($router);

@@ -8,6 +8,8 @@ class Home
 {
     public function index()
     {
+        // phpinfo();
+
         return 'This is the homepage !';
     }
 
