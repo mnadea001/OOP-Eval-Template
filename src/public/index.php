@@ -10,11 +10,12 @@ require __DIR__.'/../../vendor/autoload.php';
 
 $router = new \App\Router();
 
-$router->register('/', [App\Classes\Home::class, 'index']);
-$router->register('/alt', [App\Classes\Home::class, 'alt']);
-$router->register('/hw', function () { require 'hello.php'; });
-$router->register('/transactions', function () { echo 'Transactions'; });
-$router->register('/transactions/create', [App\Classes\Transactions::class, 'create']);
+$router->get('/', [App\Classes\Home::class, 'index']);
+$router->get('/alt', [App\Classes\Home::class, 'alt']);
+$router->get('/hw', function () { echo 'Hello world !'; });
+$router->get('/transactions', [App\Classes\Transactions::class, 'index']);
+$router->get('/transactions/create', [App\Classes\Transactions::class, 'create']);
+$router->post('/transactions/create', [App\Classes\Transactions::class, 'store']);
 
-echo $router->resolve($_SERVER['REQUEST_URI']);
+echo $router->resolve($_SERVER['REQUEST_URI'], strtolower($_SERVER['REQUEST_METHOD']));
 // var_dump($router);

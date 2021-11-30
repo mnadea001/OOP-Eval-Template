@@ -6,7 +6,7 @@ namespace App\Classes;
 
 class Home
 {
-    public static function index()
+    public function index()
     {
         return 'This is the homepage !';
     }
