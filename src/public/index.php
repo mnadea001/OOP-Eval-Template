@@ -10,4 +10,9 @@ require __DIR__.'/../../vendor/autoload.php';
 
 $router = new \App\Router();
 
-var_dump($router);
+$router->register('/', function () { echo 'Homepage'; });
+$router->register('/hw', function () { require 'hello.php'; });
+$router->register('/transactions', function () { echo 'Transactions'; });
+
+$router->resolve($_SERVER['REQUEST_URI']);
+// var_dump($router);
