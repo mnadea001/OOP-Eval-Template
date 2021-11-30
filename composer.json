@@ -1,9 +1,10 @@
 {
-    "name": "root/www",
-    "autoload": {
-        "psr-4": {
-            "Root\\Www\\": "src/"
-        }
+    "require": {
+        "ramsey/uuid": "^4.2"
     },
-    "require": {}
+    "autoload":{
+        "psr-4": {
+            "App\\" :"src/"
+        }
+    }
 }
