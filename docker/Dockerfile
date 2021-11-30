@@ -1,6 +1,6 @@
-FROM php:8.1-rc-fpm
+FROM php:8.1-rc-fpm-alpine
 
-RUN apt-get update && apt-get install -y \
+RUN apk update && apk add \
     git \
     curl \
     zip \
