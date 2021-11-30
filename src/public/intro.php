@@ -1,6 +1,6 @@
 <?php
 
-// Classes & Objets
+// Controllers & Objets
 
 declare(strict_types=1);
 

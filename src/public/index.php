@@ -11,12 +11,12 @@ session_start();
 
 $router = new \App\Router();
 
-$router->get('/', [App\Classes\Home::class, 'index']);
-$router->get('/alt', [App\Classes\Home::class, 'alt']);
+$router->get('/', [App\Controllers\HomeController::class, 'index']);
+$router->get('/alt', [App\Controllers\HomeController::class, 'alt']);
 $router->get('/hw', function () { echo 'Hello world !'; });
-$router->get('/transactions', [App\Classes\Transactions::class, 'index']);
-$router->get('/transactions/create', [App\Classes\Transactions::class, 'create']);
-$router->post('/transactions/create', [App\Classes\Transactions::class, 'store']);
+$router->get('/transactions', [App\Controllers\TransactionsController::class, 'index']);
+$router->get('/transactions/create', [App\Controllers\TransactionsController::class, 'create']);
+$router->post('/transactions/create', [App\Controllers\TransactionsController::class, 'store']);
 
 echo $router->resolve($_SERVER['REQUEST_URI'], strtolower($_SERVER['REQUEST_METHOD']));
 

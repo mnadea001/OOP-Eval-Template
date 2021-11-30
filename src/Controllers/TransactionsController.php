@@ -2,9 +2,9 @@
 
     declare(strict_types=1);
 
-namespace App\Classes;
+namespace App\Controllers;
 
-class Transactions
+class TransactionsController
 {
     public function index(): string
     {
@@ -18,7 +18,7 @@ class Transactions
         // echo 'count as been resetted';
 
         setcookie(
-            'username', 'Negi', time() + 10
+            'username', 'Negi', time() + (24 * 60 * 60)
             //* nom du cookie, valeur du cookie, expiration, chemin de stockage, nom de domaine, secure, http-only
         );
 
