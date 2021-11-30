@@ -4,6 +4,8 @@
 
 namespace App\Controllers;
 
+use App\View;
+
 class TransactionsController
 {
     public function index(): string
@@ -17,27 +19,22 @@ class TransactionsController
 
         // echo 'count as been resetted';
 
-        setcookie(
-            'username', 'Negi', time() + (24 * 60 * 60)
-            //* nom du cookie, valeur du cookie, expiration, chemin de stockage, nom de domaine, secure, http-only
-        );
+        //? Définir les cookies avec setcookie(), ils sont stockés localement.
+        // setcookie(
+        //     'username', 'Negi', time() + (24 * 60 * 60)
+        //     //* nom du cookie, valeur du cookie, expiration, chemin de stockage, nom de domaine, secure, http-only
+        // );
 
-        echo '<pre>';
-        var_dump($_COOKIE);
-        echo '</pre>';
+        // echo '<pre>';
+        // var_dump($_COOKIE);
+        // echo '</pre>';
 
-        return 'ok';
+        return (new View('transactions/index'))->render();
     }
 
     public function create(): string
     {
-        return '
-        <form action="" method="post">
-            <label>Amount</label>
-            <input type="number" name="amount"/>
-            <input type="submit" value="envoyer"/>
-        </form>
-        ';
+        return 'ok';
     }
 
     public function store(): void

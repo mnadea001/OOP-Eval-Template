@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 require __DIR__.'/../../vendor/autoload.php';
 
+$root = dirname(__DIR__).DIRECTORY_SEPARATOR;
+define('VIEWS_PATH', $root.'../views'.DIRECTORY_SEPARATOR);
+
 session_start();
 // echo '<pre>';
 // print_r($_SERVER);
