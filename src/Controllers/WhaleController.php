@@ -16,8 +16,6 @@ class WhaleController
             'date' => '01/12/2021',
         ];
 
-        $amount = $_POST['amount'];
-
         return (new View('whale/index', ['article' => $article]))->render();
     }
 
@@ -26,12 +24,26 @@ class WhaleController
         return (new \App\View('whale/image'))->render();
     }
 
-    public function container(): mixed
+    public function container(): string
     {
+        echo '<pre>';
+        var_dump($_POST);
+        echo '</pre>';
         // Ici récupérer les infos
+        $form_infos = [
+            'name' => htmlspecialchars(trim($_POST['name'])),
+            'server' => htmlspecialchars(ucfirst($_POST['server'])),
+            'database' => htmlspecialchars(ucfirst($_POST['database'])),
+            'language' => htmlspecialchars(ucfirst($_POST['language'])),
+        ];
+
+        $user = ['username' => 'Negi'];
 
         // Passez les infos en paramètres du render
 
-        return (new \App\View('whale/container'))->render();
+        return (new \App\View('whale/container', [
+            'form_infos' => $form_infos,
+            'user' => $user,
+            ]))->render();
     }
 }
