@@ -6,14 +6,14 @@ namespace App\Controllers;
 
 class HomeController
 {
-    public function index()
+    public function index(): string
     {
         // phpinfo();
 
         return 'This is the homepage !';
     }
 
-    public function alt()
+    public function alt(): string
     {
         return strrev('This is an alternate universe');
     }

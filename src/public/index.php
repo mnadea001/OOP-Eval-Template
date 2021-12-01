@@ -20,6 +20,9 @@ $router->get('/hw', function () { echo 'Hello world !'; });
 $router->get('/transactions', [App\Controllers\TransactionsController::class, 'index']);
 $router->get('/transactions/create', [App\Controllers\TransactionsController::class, 'create']);
 $router->post('/transactions/create', [App\Controllers\TransactionsController::class, 'store']);
+$router->get('/whale', [App\Controllers\WhaleController::class, 'index']);
+$router->get('/whale/image', [App\Controllers\WhaleController::class, 'image']);
+$router->post('/whale/container', [App\Controllers\WhaleController::class, 'container']);
 
 echo $router->resolve($_SERVER['REQUEST_URI'], strtolower($_SERVER['REQUEST_METHOD']));
 
