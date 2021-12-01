@@ -4,6 +4,8 @@
 
 namespace App;
 
+use App\Exceptions\ViewNotFoundException;
+
 class View
 {
     public function __construct(protected string $view, protected array $params = [])
@@ -12,9 +14,15 @@ class View
 
     public function render()
     {
+        $viewPath = VIEWS_PATH.$this->view.'.php';
+
+        if (!file_exists($viewPath)) {
+            throw new ViewNotFoundException();
+        }
+
         ob_start();
 
-        include VIEWS_PATH.$this->view.'.php';
+        include $viewPath;
 
         return ob_get_clean();
     }
