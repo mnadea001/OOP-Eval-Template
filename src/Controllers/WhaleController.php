@@ -10,7 +10,15 @@ class WhaleController
 {
     public function index(): string
     {
-        return (new View('whale/index'))->render();
+        $article = [
+            'name' => 'Mon premier article',
+            'content' => ' Le contenu de mon premier article',
+            'date' => '01/12/2021',
+        ];
+
+        $amount = $_POST['amount'];
+
+        return (new View('whale/index', ['article' => $article]))->render();
     }
 
     public function image(): string
@@ -20,7 +28,10 @@ class WhaleController
 
     public function container(): mixed
     {
-        // return var_dump($_POST);
+        // Ici récupérer les infos
+
+        // Passez les infos en paramètres du render
+
         return (new \App\View('whale/container'))->render();
     }
 }

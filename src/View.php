@@ -26,4 +26,9 @@ class View
 
         return ob_get_clean();
     }
+
+    public function __get(mixed $variable)
+    {
+        return $this->params[$variable];
+    }
 }

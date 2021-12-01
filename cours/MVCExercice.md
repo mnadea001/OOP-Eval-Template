@@ -33,3 +33,11 @@ _Dans la fonction index() de notre WhaleController, on fera un return de la clas
 Rajoutez une requête post sur la page whale/image qui réceptionnera les informations entrées dans un formulaire présent sur la page whale/image. Nommez cette nouvelle page (Celle qui reçoit la requête POST) whale/container.
 
 **On va créer une nouvelle route post qui aura l'adresse whale/image, cette route aura pour fonction container() (qu'il faudra définir dans le WhaleController). On peut se limiter à un return var_dump($\_POST). Sur la view de la page whale/image, il y aura un formulaire à créer qui va avoir pour action /whale/image. Après avoir vérifié que la requête fonctionne (donc en envoyant le formulaire), on va renommer la route en /whale/container**
+
+=============================
+
+## Partie 3 :
+
+A l'aide des schémas de ce matin, utilisez la page image (whale/image) et son formulaire pour afficher les informations entrées dans le formulaire sur la page container, dans une view container.php.
+Le formulaire devra être étendu avec plusieurs champs : name,serveur,base de données, langage de base.
+Il devra être affiché dans un tableau HTML/CSS (comme vous voulez) sur la page d'arrivée.
