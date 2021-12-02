@@ -4,6 +4,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Container;
 use App\View;
 
 class WhaleController
@@ -26,9 +27,6 @@ class WhaleController
 
     public function container(): string
     {
-        echo '<pre>';
-        var_dump($_POST);
-        echo '</pre>';
         // Ici récupérer les infos
         $form_infos = [
             'name' => htmlspecialchars(trim($_POST['name'])),
@@ -37,13 +35,12 @@ class WhaleController
             'language' => htmlspecialchars(ucfirst($_POST['language'])),
         ];
 
-        $user = ['username' => 'Negi'];
+        // Execution de la méthode createContainer qui sert à créer des Containers à l'aide d'une requête SQL.
+        $containerManager = new Container();
+        $containerManager->createContainer($form_infos['name'], $form_infos['server'], $form_infos['database'], $form_infos['language']);
 
+        $containers = $containerManager->getContainers();
         // Passez les infos en paramètres du render
-
-        return (new \App\View('whale/container', [
-            'form_infos' => $form_infos,
-            'user' => $user,
-            ]))->render();
+        return (new \App\View('whale/container', ['containers' => $containers]))->render();
     }
 }

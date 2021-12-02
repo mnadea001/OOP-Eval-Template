@@ -122,15 +122,21 @@ class Container
         return $result ?? null;
     }
 
-    public function createContainer(string $name, string $server, string $db, string $language): bool
+    public function createContainer(string $name, string $server, string $database, string $language)
     {
         try {
+            // $db = (new DB())->getStaticPdo();
             $db = new DB();
-            $data = $db->getStaticPdo()->query("INSERT INTO containers (name, server, db, language) VALUES ($name, $server, $db, $language)");
+            $sqlInsert = 'INSERT INTO containers (name, server, db, language) VALUES (:name, :server, :database, :language)';
+            $reqInsert = $db->getStaticPdo()->prepare($sqlInsert);
+            $reqInsert->bindValue(':name', $name);
+            $reqInsert->bindValue(':server', $server);
+            $reqInsert->bindValue(':database', $database);
+            $reqInsert->bindValue(':language', $language);
 
-            return $data->execute();
-        } catch (\PDOException $th) {
-            throw new \PDOException($th->getMessage(), $th->getCode());
+            return $reqInsert->execute();
+        } catch (\PDOException $e) {
+            throw new \PDOException($e->getMessage(), (int) $e->getCode());
         }
     }
 }

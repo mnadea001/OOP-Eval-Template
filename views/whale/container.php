@@ -1,10 +1,10 @@
 <h1> Configuration du container </h1>
 
-<h2>Welcome back <?php echo $this->user['username']; ?></h2>
+<h2>Welcome back</h2>
 
 <?php
     echo '<pre>';
-    var_dump($this->form_infos);
+    var_dump($this->containers);
     echo '</pre>';
 ?>
 
@@ -16,11 +16,17 @@
         <th>Langage utilisé</th>
     </thead>
     <tbody>
+        <?php
+            foreach ($this->containers as $container) {
+                ?>
         <tr>
-            <td><?php echo $this->form_infos['name']; ?></td>
-            <td><?php echo $this->form_infos['server']; ?></td>
-            <td><?php echo $this->form_infos['database']; ?></td>
-            <td><?php echo $this->form_infos['language']; ?></td>
+            <td><?php echo $container->getName(); ?></td>
+            <td><?php echo $container->getServer(); ?></td>
+            <td><?php echo $container->getDb(); ?></td>
+            <td><?php echo $container->getLanguage(); ?></td>
         </tr>
+        <?php
+            }
+        ?>
     </tbody>
 </table>
