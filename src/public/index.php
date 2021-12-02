@@ -26,6 +26,9 @@ try {
     $router->get('/whale', [App\Controllers\WhaleController::class, 'index']);
     $router->get('/whale/image', [App\Controllers\WhaleController::class, 'image']);
     $router->post('/whale/container', [App\Controllers\WhaleController::class, 'container']);
+    $router->get('/voitures', [App\Controllers\HomeController::class, 'voiture']);
+    $router->get('/voitures/create', [App\Controllers\HomeController::class, 'create']);
+    $router->post('/voitures/create', [App\Controllers\HomeController::class, 'store']);
 
     echo $router->resolve($_SERVER['REQUEST_URI'], strtolower($_SERVER['REQUEST_METHOD']));
 } catch (\App\Exceptions\RouteNotFoundException $e) {

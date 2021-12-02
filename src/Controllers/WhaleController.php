@@ -38,6 +38,7 @@ class WhaleController
         // Execution de la méthode createContainer qui sert à créer des Containers à l'aide d'une requête SQL.
         $containerManager = new Container();
         $containerManager->createContainer($form_infos['name'], $form_infos['server'], $form_infos['database'], $form_infos['language']);
+        // $containerManager->createContainer(...$form_infos);
 
         $containers = $containerManager->getContainers();
         // Passez les infos en paramètres du render
