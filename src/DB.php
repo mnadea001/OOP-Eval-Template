@@ -8,13 +8,10 @@ use PDO;
 
     class DB
     {
-        //? Création d'une propriété liée à la BDD, elle va contenir ma connexion. Elle sera statique afin de pouvoir récupérer la même instance de la BDD.
-
         private static PDO $pdo;
 
-        public function __construct(string $config = 'mysql:host=db;dbname=poo;', string $user = 'root', string $password = 'root')
+        public function __construct(string $config = 'mysql:host=HOST;dbname=DATABASE;', string $user = 'USERNAME', string $password = 'PASSWORD')
         {
-            // $config = 'mysql:host=db;dbname=poo,root,root';
             try {
                 static::$pdo = new PDO($config, $user, $password);
             } catch (\PDOException $e) {
