@@ -5,3 +5,5 @@ Le repository suivant contient toutes les classes utilitaires pour un "Framework
 Bon courage à tous et n'hésitez pas à faire des recherches.
 
 Le repository de la semaine est toujours présent même si je serai plus sévère en cas de copy-paste.
+
+Des points supplémentaires seront accordés pour un code commenté (avec de bonnes infos/infos utiles).
