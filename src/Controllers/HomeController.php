@@ -4,13 +4,16 @@
 
 namespace App\Controllers;
 
+use App\Models\Container;
+
 class HomeController
 {
     public function index(): string
     {
-        // phpinfo();
+        $containerManager = new Container();
+        $containers = $containerManager->getContainers();
 
-        return 'This is the homepage !';
+        return (new \App\View('index', ['containers' => $containers]))->render();
     }
 
     public function alt(): string

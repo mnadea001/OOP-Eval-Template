@@ -8,15 +8,22 @@ use PDO;
 
     class DB
     {
-        private PDO $pdo;
+        //? Création d'une propriété liée à la BDD, elle va contenir ma connexion. Elle sera statique afin de pouvoir récupérer la même instance de la BDD.
 
-        public function __construct(array $config)
+        private static PDO $pdo;
+
+        public function __construct(string $config = 'mysql:host=db;dbname=poo;', string $user = 'root', string $password = 'root')
         {
-            $config = 'mysql:host=localhost;dbname=oop,root,root';
+            // $config = 'mysql:host=db;dbname=poo,root,root';
             try {
-                $this->pdo = new PDO($config);
+                static::$pdo = new PDO($config, $user, $password);
             } catch (\PDOException $e) {
-                echo 'Error: '.$e->getMessage();
+                throw new \PDOException($e->getMessage(), $e->getCode());
             }
+        }
+
+        public function getStaticPdo(): PDO
+        {
+            return static::$pdo;
         }
     }
